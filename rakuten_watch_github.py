@@ -21,7 +21,7 @@ last_hash = None
 
 log("楽天トラベル監視スタート")
 
-while True:
+##### while True:
 
     try:
         r = requests.get(url, headers=headers, timeout=10)
