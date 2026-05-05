@@ -1,1 +1,25 @@
+name: Rakuten Watch
 
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: コード取得
+        uses: actions/checkout@v4
+
+      - name: Pythonセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: ライブラリインストール
+        run: pip install requests
+
+      - name: スクリプト実行
+        run: python rakuten_watch_github.py
